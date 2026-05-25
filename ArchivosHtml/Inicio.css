@@ -1,0 +1,435 @@
+/* ========== RESET & VARIABLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo-oscuro: #0a0a0a;
+    --fondo-card: #111111;
+    --texto-principal: #f0f0f0;
+    --texto-suave: #cbcbcb;
+    --acento: #d4af37;
+    --acento-hover: #e6c450;
+    --borde-gris: #2a2a2a;
+    --sombra: 0 15px 35px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-principal);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+/* ========== HEADER / NAVEGACIÓN ========== */
+header {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(6px);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--borde-gris);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 30%, var(--acento) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+nav {
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+
+nav a:hover {
+    color: var(--acento);
+    border-bottom-color: var(--acento);
+}
+
+/* ========== MAIN y secciones comunes ========== */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1rem 2rem 4rem;
+}
+
+section {
+    margin: 4rem 0;
+    scroll-margin-top: 90px;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--acento);
+    border-radius: 3px;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    color: var(--texto-suave);
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+/* ========== HERO CARRUSEL ========== */
+.hero-carousel {
+    min-height: 80vh;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-container {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: url('../img/logoalex.jpeg') no-repeat center center / cover;
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 28px;
+}
+
+.carousel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff, var(--acento));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.carousel-subtitle {
+    font-size: 1.2rem;
+    color: var(--texto-suave);
+    margin-bottom: 2rem;
+}
+
+/* ========== BOTONES ========== */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--acento);
+    color: #0a0a0a;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.btn-cta:hover {
+    background: var(--acento-hover);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ========== SERVICIOS ========== */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1rem;
+}
+
+.servicio-card {
+    background: var(--fondo-card);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--borde-gris);
+    transition: var(--transition);
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--acento);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.servicio-card i {
+    font-size: 2.8rem;
+    color: var(--acento);
+    margin-bottom: 1rem;
+}
+
+.servicio-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
+.servicio-card p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+/* ========== GALERIA ========== */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin: 2rem 0 1.5rem;
+}
+
+.galeria-item {
+    background: var(--fondo-card);
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--borde-gris);
+    transition: var(--transition);
+}
+
+.galeria-item:hover {
+    transform: scale(1.02);
+    border-color: var(--acento);
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: white;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.placeholder-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    transition: var(--transition);
+}
+
+.placeholder-img:hover::before {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.placeholder-img i,
+.placeholder-img span {
+    position: relative;
+    z-index: 1;
+}
+
+.placeholder-img i {
+    font-size: 3rem;
+    color: var(--acento);
+    opacity: 0.9;
+}
+
+.placeholder-img span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* ========== CONTACTO ========== */
+.contacto-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    background: var(--fondo-card);
+    border-radius: 28px;
+    padding: 2rem;
+    border: 1px solid var(--borde-gris);
+}
+
+.contacto-info {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+
+.contacto-info p {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.contacto-info i {
+    font-size: 1.3rem;
+    color: var(--acento);
+}
+
+.contacto-info a {
+    color: var(--texto-principal);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contacto-info a:hover {
+    color: var(--acento);
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.8rem;
+    justify-content: center;
+}
+
+.redes-sociales a {
+    background: #1e1e1e;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    color: var(--texto-principal);
+}
+
+.redes-sociales a:hover {
+    background: var(--acento);
+    color: #0a0a0a;
+    transform: translateY(-3px);
+}
+.mapa-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+
+.Mapa {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 18px;
+}
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--borde-gris);
+    margin-top: 2rem;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 1.2rem;
+    }
+
+    main {
+        padding: 1rem 1.2rem 2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-title {
+        font-size: 2rem;
+    }
+
+    .contacto-container {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .btn-cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .placeholder-img i {
+        font-size: 2.4rem;
+    }
+}
