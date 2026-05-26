@@ -125,7 +125,7 @@ section h2::after {
     min-height: 500px;
     overflow: hidden;
     border-radius: 28px;
-    background: url('img/logoalex.jpeg') no-repeat center center / cover;
+    background: url('../Img/logoalex.jpeg') no-repeat center center / cover;
 }
 
 .carousel-content {
