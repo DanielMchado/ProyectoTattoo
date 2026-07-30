@@ -17,12 +17,25 @@
     --transition: all 0.3s ease;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     background-color: var(--fondo-oscuro);
     color: var(--texto-principal);
     font-family: 'Inter', sans-serif;
     line-height: 1.5;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ========== HEADER / NAVEGACIÓN ========== */
@@ -114,18 +127,41 @@ section h2::after {
 
 /* ========== HERO CARRUSEL ========== */
 .hero-carousel {
-    min-height: 80vh;
+    min-height: 90vh;
     margin: 0;
     padding: 0;
 }
 
 .carousel-container {
     position: relative;
-    height: 80vh;
-    min-height: 500px;
+    height: 90vh;
+    min-height: 560px;
     overflow: hidden;
     border-radius: 28px;
-    background: url('Img/logoalex.jpeg') no-repeat center center / cover;
+    background-color: var(--fondo-oscuro);
+}
+
+.carousel-bg-blur {
+    position: absolute;
+    inset: 0;
+    background-image: url('Img/Portada Alex.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(40px) brightness(0.45) saturate(1.1);
+    transform: scale(1.15);
+    z-index: 0;
+}
+
+.carousel-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('Img/Portada Alex.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 1;
+    box-shadow: 0 0 80px 20px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-content {
@@ -138,7 +174,7 @@ section h2::after {
     text-align: center;
     height: 100%;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 28px;
 }
 
@@ -157,6 +193,7 @@ section h2::after {
     font-size: 1.2rem;
     color: var(--texto-suave);
     margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
 }
 
 /* ========== BOTONES ========== */
@@ -295,56 +332,128 @@ section h2::after {
 .contacto-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 2.5rem;
     margin-top: 1.5rem;
     background: var(--fondo-card);
     border-radius: 28px;
-    padding: 2rem;
+    padding: 2.5rem;
     border: 1px solid var(--borde-gris);
 }
 
 .contacto-info {
     flex: 1;
-    min-width: 250px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
+.contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 360px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--borde-gris);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
 
-.contacto-info p {
-    margin: 1rem 0;
+.contacto-item:hover {
+    border-color: var(--acento);
+    transform: translateY(-3px);
+}
+
+.contacto-icono {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
 }
 
-.contacto-info i {
-    font-size: 1.3rem;
+.contacto-icono i {
+    font-size: 1.4rem;
     color: var(--acento);
 }
 
-.contacto-info a {
+.contacto-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contacto-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--texto-suave);
+}
+
+.contacto-texto a,
+.contacto-texto p {
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--texto-principal);
     text-decoration: none;
     transition: var(--transition);
 }
 
-.contacto-info a:hover {
+.contacto-texto a:hover {
     color: var(--acento);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+    margin: 0.8rem 0 1.6rem;
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+    font-size: 1.05rem;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebd59;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp i {
+    font-size: 1.3rem;
+}
+
+.contacto-divisor {
+    width: 100%;
+    max-width: 360px;
+    height: 1px;
+    background: var(--borde-gris);
+    margin: 0.4rem 0 1.2rem;
+}
+
+.redes-titulo {
+    color: var(--texto-suave);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
 }
 
 .redes-sociales {
     display: flex;
     gap: 1.5rem;
-    margin-top: 1.8rem;
     justify-content: center;
 }
 
 .redes-sociales a {
     background: #1e1e1e;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -357,19 +466,83 @@ section h2::after {
 .redes-sociales a:hover {
     background: var(--acento);
     color: #0a0a0a;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
 }
 .mapa-container {
     flex: 1;
     min-width: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--borde-gris);
+    box-shadow: var(--sombra);
+    background: #151515;
+    display: flex;
+    flex-direction: column;
+}
+
+.mapa-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1rem 1.2rem;
+    background: linear-gradient(135deg, #1a1a1a, #141414);
+    border-bottom: 2px solid var(--acento);
+}
+
+.mapa-header-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--texto-principal);
+}
+
+.mapa-header-info i {
+    color: var(--acento);
+    font-size: 1.1rem;
+}
+
+.mapa-direccion-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--acento);
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.mapa-direccion-btn i {
+    font-size: 0.75rem;
+}
+
+.mapa-direccion-btn:hover {
+    background: var(--acento-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(212, 175, 55, 0.35);
+}
+
+.mapa-frame {
+    position: relative;
+    flex: 1;
+    min-height: 300px;
+    filter: grayscale(15%) contrast(1.05);
 }
 
 
 .Mapa {
     width: 100%;
-    height: 300px;
+    height: 100%;
+    min-height: 300px;
     border: none;
-    border-radius: 18px;
+    display: block;
 }
 /* ========== FOOTER ========== */
 footer {
@@ -381,8 +554,94 @@ footer {
     font-size: 0.85rem;
 }
 
+/* ========== BURBUJA FLOTANTE DE WHATSAPP ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    text-decoration: none;
+    animation: whatsapp-pulse 2.4s infinite;
+    transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+    background: #1ebd59;
+}
+
+.whatsapp-float i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--fondo-card);
+    color: var(--texto-principal);
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid var(--borde-gris);
+    box-shadow: var(--sombra);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.whatsapp-tooltip.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: var(--fondo-card);
+}
+
+@keyframes whatsapp-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
+    .hero-carousel {
+        min-height: 0;
+    }
+
+    .carousel-container {
+        height: auto;
+        aspect-ratio: 2 / 3;
+        min-height: 0;
+    }
+
     header {
         flex-direction: column;
         text-align: center;
@@ -410,6 +669,12 @@ footer {
         padding: 1.5rem;
     }
 
+    .contacto-item,
+    .btn-whatsapp,
+    .contacto-divisor {
+        max-width: 100%;
+    }
+
     .servicios-grid {
         grid-template-columns: 1fr;
     }
@@ -431,5 +696,20 @@ footer {
 
     .placeholder-img i {
         font-size: 2.4rem;
+    }
+
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .whatsapp-float i {
+        font-size: 1.7rem;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
     }
 }
